@@ -71,7 +71,7 @@ func(lb *LoadBalancer) serveProxy(rw http.ResponseWriter, req *http.Request){
 
 func main(){
 	servers := []Server{
-		newSimpleServer("https://www.facebook.com"),
+		newSimpleServer("https://www.instagram.com"),
 		newSimpleServer("https://www.bing.com"),
 		newSimpleServer("https://www.duckduckgo.com"),
 	}
@@ -80,7 +80,7 @@ func main(){
 		lb.serveProxy(rw,req)
 	}
 	http.HandleFunc("/",handleRedirect)
-	fmt.Printf("serving requests at localhost: %s'\n",lb.port)
+	fmt.Printf("serving requests at localhost: %s\n",lb.port)
 	http.ListenAndServe(":"+lb.port,nil)
 
 }
